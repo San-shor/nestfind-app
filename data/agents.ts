@@ -1,0 +1,43 @@
+import { Agent } from "@/lib/types";
+
+export const agents: Record<number, Agent> = {
+  1: {
+    id: 1,
+    name: "Sophia Rahman",
+    role: "Senior Estate Director",
+    initials: "SR",
+    color: "#b8914a",
+    listings: 24,
+    sold: 18,
+    rating: 4.9,
+    phone: "+880 171-234-5678",
+    email: "sophia@nestfind.com",
+    bio: "12 years specialising in Gulshan, Baridhara & Banani. Known for discretion and deep market knowledge.",
+  },
+  2: {
+    id: 2,
+    name: "Arman Hossain",
+    role: "Luxury Properties Specialist",
+    initials: "AH",
+    color: "#3d5c3d",
+    listings: 31,
+    sold: 27,
+    rating: 4.8,
+    phone: "+880 181-876-5432",
+    email: "arman@nestfind.com",
+    bio: "Expert in high-rise apartments and new developments. Fluent in Bengali, English and Arabic.",
+  },
+  3: {
+    id: 3,
+    name: "Nadia Islam",
+    role: "Rental & Investment Advisor",
+    initials: "NI",
+    color: "#9c4a2a",
+    listings: 19,
+    sold: 14,
+    rating: 4.9,
+    phone: "+880 191-456-7890",
+    email: "nadia@nestfind.com",
+    bio: "Specialist in rental properties and investment portfolios. Trusted by expats and returning diaspora.",
+  },
+};
