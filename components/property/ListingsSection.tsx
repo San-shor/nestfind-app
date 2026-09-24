@@ -12,9 +12,17 @@ import type { Property, HeroSearch, PropertyType } from "@/lib/types";
 
 interface Props {
   initialSearch?: HeroSearch;
+  heading?: string;
+  headingAccent?: string;
+  subtitle?: string;
 }
 
-export default function ListingsSection({ initialSearch }: Props) {
+export default function ListingsSection({
+  initialSearch,
+  heading = "Premium",
+  headingAccent = "Listings",
+  subtitle,
+}: Props) {
   const { filters, sort, view, filtered, setSort, setView, applySearch, updateFilter, reset } =
     useFilters();
 
@@ -22,15 +30,25 @@ export default function ListingsSection({ initialSearch }: Props) {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
-    if (initialSearch) applySearch(initialSearch);
+    if (!initialSearch) return;
+    applySearch(initialSearch);
+    if (initialSearch.status) updateFilter("status", initialSearch.status);
   }, [initialSearch?.q, initialSearch?.location, initialSearch?.status]);
+
+  const handleReset = () => {
+    reset();
+    if (!initialSearch) return;
+    applySearch(initialSearch);
+    if (initialSearch.status) updateFilter("status", initialSearch.status);
+  };
 
   return (
     <section id="listings" className="max-w-[1300px] mx-auto px-4 md:px-6 py-14">
       <div className="mb-8">
         <h2 className="font-display text-3xl md:text-4xl font-bold">
-          Premium <span className="text-[#b8914a]">Listings</span>
+          {heading} <span className="text-[#b8914a]">{headingAccent}</span>
         </h2>
+        {subtitle && <p className="mt-2 text-sm text-[#8a8070] max-w-xl">{subtitle}</p>}
       </div>
 
       <TypeTabs
@@ -58,7 +76,7 @@ export default function ListingsSection({ initialSearch }: Props) {
                 <X size={18} />
               </button>
             </div>
-            <FilterSidebar filters={filters} onChange={updateFilter} onReset={reset} />
+            <FilterSidebar filters={filters} onChange={updateFilter} onReset={handleReset} />
             <button
               type="button"
               onClick={() => setFiltersOpen(false)}
@@ -75,7 +93,7 @@ export default function ListingsSection({ initialSearch }: Props) {
           <FilterSidebar
             filters={filters}
             onChange={updateFilter}
-            onReset={reset}
+            onReset={handleReset}
           />
         </div>
 
@@ -91,7 +109,7 @@ export default function ListingsSection({ initialSearch }: Props) {
             properties={filtered}
             view={view}
             onSelect={setSelected}
-            onReset={reset}
+            onReset={handleReset}
           />
         </div>
       </div>

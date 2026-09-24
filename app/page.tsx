@@ -1,5 +1,4 @@
 'use client'
-import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/layout/Hero';
 import { useState } from 'react';
 import { HeroSearch } from '@/lib/types';
@@ -11,7 +10,6 @@ export default function Home() {
 
   return (
    <main>
-    <Navbar/>
     <Hero onSearch={setSearch}/>
     <TrustBar/>
     <ListingsSection initialSearch={search}/>
