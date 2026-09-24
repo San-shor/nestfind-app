@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SlidersHorizontal, X } from "lucide-react";
 import FilterSidebar from "@/components/property/FilterSidebar";
 import TypeTabs from "@/components/property/TypeTabs";
 import Toolbar from "@/components/property/Toolbar";
@@ -18,6 +19,7 @@ export default function ListingsSection({ initialSearch }: Props) {
     useFilters();
 
   const [selected, setSelected] = useState<Property | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   useEffect(() => {
     if (initialSearch) applySearch(initialSearch);
@@ -36,12 +38,46 @@ export default function ListingsSection({ initialSearch }: Props) {
         onChange={(t: PropertyType) => updateFilter("type", t)}
       />
 
+      <button
+        type="button"
+        onClick={() => setFiltersOpen(true)}
+        className="lg:hidden mb-5 inline-flex items-center gap-2 border border-[#ddd5c4] bg-white text-sm font-semibold px-4 py-2.5 rounded-lg"
+      >
+        <SlidersHorizontal size={16} />
+        Filters
+      </button>
+
+      {filtersOpen && (
+        <div className="lg:hidden fixed inset-0 z-[80] bg-black/50" onClick={() => setFiltersOpen(false)}>
+          <div
+            className="absolute inset-x-0 bottom-0 max-h-[88vh] overflow-y-auto rounded-t-2xl bg-[#faf7f2] p-4 pb-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-end mb-2">
+              <button type="button" onClick={() => setFiltersOpen(false)} className="p-1" aria-label="Close filters">
+                <X size={18} />
+              </button>
+            </div>
+            <FilterSidebar filters={filters} onChange={updateFilter} onReset={reset} />
+            <button
+              type="button"
+              onClick={() => setFiltersOpen(false)}
+              className="mt-4 w-full bg-[#1a1714] text-[#faf7f2] text-sm font-semibold py-3 rounded-lg"
+            >
+              Show {filtered.length} properties
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
-        <FilterSidebar
-          filters={filters}
-          onChange={updateFilter}
-          onReset={reset}
-        />
+        <div className="hidden lg:block">
+          <FilterSidebar
+            filters={filters}
+            onChange={updateFilter}
+            onReset={reset}
+          />
+        </div>
 
         <div>
           <Toolbar

@@ -21,7 +21,7 @@ export default function AgentCard({ agent, property }: Props) {
     "w-full border border-[#ddd5c4] bg-[#faf7f2] rounded-lg px-3 py-2.5 text-sm text-[#1a1714] outline-none focus:border-[#b8914a] transition-colors mb-2.5 placeholder-[#8a8070]";
 
   return (
-    <div className="border-l border-[#ddd5c4] bg-white p-6 flex flex-col gap-0">
+    <div className="border-t lg:border-t-0 lg:border-l border-[#ddd5c4] bg-white p-6 flex flex-col gap-0">
       <p className="text-[0.68rem] font-bold tracking-[1.2px] uppercase text-[#8a8070] mb-4">
         Your Agent
       </p>
