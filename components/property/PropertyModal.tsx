@@ -105,7 +105,7 @@ export default function PropertyModal({ property: p, onClose }: Props) {
               )}
             </div>
 
-            <div className="grid grid-cols-4 gap-3 mb-7">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-7">
               {stats.map((s) => (
                 <div key={s.lbl} className="bg-[#f3ede3] rounded-xl p-3 text-center">
                   <div className="text-xl mb-1">{STAT_ICONS[s.lbl]}</div>

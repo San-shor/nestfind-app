@@ -14,7 +14,7 @@ interface Props {
 
 export default function FilterSidebar({ filters, onChange, onReset }: Props) {
   return (
-    <aside className="sticky top-[88px] self-start">
+    <aside className="lg:sticky lg:top-[88px] self-start">
       <div className="bg-white border border-[#ddd5c4] rounded-2xl overflow-hidden shadow-sm">
         <div className="flex items-center justify-between px-6 py-5 border-b border-[#ddd5c4]">
           <h3 className="font-sans text-[0.95rem] font-semibold tracking-wide">Filters</h3>

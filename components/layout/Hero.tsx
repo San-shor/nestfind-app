@@ -63,7 +63,7 @@ export default function Hero({ onSearch }: HeroProps) {
           sought-after neighbourhoods.
         </p>
 
-        <div className="flex flex-wrap gap-2 p-3 rounded-2xl max-w-3xl"
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 p-3 rounded-2xl max-w-3xl"
           style={{ background: "rgba(255,255,255,.05)", border: "1px solid rgba(255,255,255,.10)", backdropFilter: "blur(12px)" }}>
           <input
             className="flex-1 min-w-[180px] px-4 py-3 rounded-lg text-sm text-white placeholder-white/40 outline-none focus:border-[#b8914a]/50"
@@ -100,7 +100,7 @@ export default function Hero({ onSearch }: HeroProps) {
           </select>
           <button
             onClick={handleSearch}
-            className="flex items-center gap-2 px-8 py-3 rounded-lg text-sm font-bold text-[#1a1714] bg-[#b8914a] hover:bg-[#d4b06a] transition-all hover:-translate-y-0.5 whitespace-nowrap"
+            className="flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-3 rounded-lg text-sm font-bold text-[#1a1714] bg-[#b8914a] hover:bg-[#d4b06a] transition-all hover:-translate-y-0.5 whitespace-nowrap"
           >
             <Search size={16} />
             Search

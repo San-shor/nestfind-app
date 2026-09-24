@@ -33,10 +33,10 @@ export default function PropertyCard({ property: p, view, onClick }: Props) {
   if (view === "list") {
     return (
       <div
-        className="property-card bg-white border border-[#ddd5c4] rounded-2xl overflow-hidden shadow-sm flex cursor-pointer hover:-translate-y-1 hover:shadow-md transition-all duration-200"
+        className="property-card bg-white border border-[#ddd5c4] rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row cursor-pointer hover:-translate-y-1 hover:shadow-md transition-all duration-200"
         onClick={() => onClick(p)}
       >
-        <div className="w-[280px] flex-shrink-0 relative overflow-hidden bg-[#e8e0d0]">
+        <div className="relative w-full max-sm:h-52 sm:w-[280px] flex-shrink-0 self-stretch overflow-hidden bg-[#e8e0d0]">
           <Image src={p.images[0]} alt={p.title} fill className="property-img object-cover" sizes="280px"/>
           <StatusBadge status={p.status} featured={p.featured} />
         </div>
