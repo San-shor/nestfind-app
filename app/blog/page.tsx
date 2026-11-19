@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { posts } from "@/data/posts";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Journal",
+  description: "Guides and market notes for buying, renting and selling homes in Dhaka.",
+};
+
 export default function BlogPage() {
   return (
     <main className="max-w-[1100px] mx-auto px-4 md:px-6 py-14">

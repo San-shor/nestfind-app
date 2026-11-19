@@ -1,3 +1,27 @@
+import Link from "next/link";
+import { MESSENGER_LINK, STUDIO_PAGE } from "./DemoBar";
+
+const COLUMNS = [
+  {
+    title: "Explore",
+    links: [
+      { label: "Homes for Sale", href: "/buy" },
+      { label: "Homes for Rent", href: "/rent" },
+      { label: "Sell your property", href: "/sell" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Our Agents", href: "/agents" },
+      { label: "Journal", href: "/blog" },
+      { label: "Sign in", href: "/signin" },
+    ],
+  },
+];
+
+const linkCls = "block text-sm text-[#999] hover:text-white transition-colors mb-2";
+
 export default function Footer() {
   return (
     <>
@@ -7,47 +31,47 @@ export default function Footer() {
             Nest<span className="text-[#b8914a]">Find</span>
           </span>
           <p className="text-sm leading-relaxed max-w-[280px]">
-            Dhaka's most trusted real estate platform. Connecting buyers,
-            renters, and sellers with the finest properties since 2015.
+            Dhaka&apos;s most trusted real estate platform. Connecting buyers,
+            renters, and sellers with the finest properties.
           </p>
         </div>
-        {[
-          {
-            title: "Company",
-            links: ["About Us", "Our Agents", "Careers", "Press"],
-          },
-          {
-            title: "Properties",
-            links: ["For Sale", "For Rent", "New Developments", "Commercial"],
-          },
-          {
-            title: "Contact",
-            links: [
-              "Gulshan-2, Dhaka",
-              "+880 171-234-5678",
-              "hello@nestfind.com",
-            ],
-          },
-        ].map((col) => (
+
+        {COLUMNS.map((col) => (
           <div key={col.title}>
             <h4 className="font-sans text-[0.72rem] font-bold tracking-[1.5px] uppercase text-[#ccc] mb-4">
               {col.title}
             </h4>
             {col.links.map((l) => (
-              <a
-                key={l}
-                href="#"
-                className="block text-sm text-[#777] hover:text-[#ccc] transition-colors mb-2"
-              >
-                {l}
-              </a>
+              <Link key={l.href} href={l.href} className={linkCls}>
+                {l.label}
+              </Link>
             ))}
           </div>
         ))}
+
+        <div>
+          <h4 className="font-sans text-[0.72rem] font-bold tracking-[1.5px] uppercase text-[#ccc] mb-4">
+            Want a site like this?
+          </h4>
+          <a href={MESSENGER_LINK} target="_blank" rel="noopener" className={linkCls}>
+            💬 Message WebNest Studio
+          </a>
+          <a href={STUDIO_PAGE} target="_blank" rel="noopener" className={linkCls}>
+            WebNest Studio on Facebook
+          </a>
+          <span className="block text-sm text-[#777]">📍 Dhaka, Bangladesh</span>
+        </div>
       </footer>
       <div className="bg-[#2f2b26] px-8 md:px-12 py-4 flex flex-wrap justify-between items-center gap-3">
-        <p className="text-[#555] text-xs">© 2026 NestFind. All rights reserved.</p>
-        <p className="text-[#555] text-xs">Built with Next.js, Tailwind CSS & Leaflet Maps</p>
+        <p className="text-[#8a8070] text-xs">
+          NestFind is a demo website. Listings, agents and prices are samples.
+        </p>
+        <p className="text-[#8a8070] text-xs">
+          Designed and built by{" "}
+          <a href={STUDIO_PAGE} target="_blank" rel="noopener" className="text-[#b8914a] font-semibold hover:underline">
+            WebNest Studio
+          </a>
+        </p>
       </div>
     </>
   );

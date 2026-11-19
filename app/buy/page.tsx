@@ -1,5 +1,12 @@
 import ListingsSection from "@/components/property/ListingsSection";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Homes for Sale in Dhaka",
+  description: "Houses, apartments and villas for sale across Dhaka.",
+};
+
 export default function BuyPage() {
   return (
     <ListingsSection

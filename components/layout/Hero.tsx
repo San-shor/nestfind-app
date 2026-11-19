@@ -50,7 +50,7 @@ export default function Hero({ onSearch }: HeroProps) {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-[#d4b06a] text-xs font-semibold tracking-[2px] uppercase"
           style={{ background: "rgba(184,145,74,.12)", border: "1px solid rgba(184,145,74,.25)" }}>
           <span className="w-1.5 h-1.5 rounded-full bg-[#b8914a] animate-pulse" />
-          Bangladesh's Premium Real Estate
+          Bangladesh&apos;s Premium Real Estate
         </div>
 
         <h1 className="text-white font-display font-bold mb-6 leading-[1.08]"
@@ -59,7 +59,7 @@ export default function Hero({ onSearch }: HeroProps) {
           <br />Home in Dhaka
         </h1>
         <p className="text-[#9a9388] text-lg font-light max-w-md mb-14 leading-relaxed">
-          Thousands of verified luxury properties across Dhaka's most
+          Thousands of verified luxury properties across Dhaka&apos;s most
           sought-after neighbourhoods.
         </p>
 
